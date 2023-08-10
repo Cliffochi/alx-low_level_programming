@@ -1,7 +1,8 @@
 #include<stdio.h>
 /**
- * code entry point, main is called
- * a null/zero feedback is good
+ * main - denotes start of code
+ *
+ * return - zero show code was successful
  */
 int main(void)
 {
