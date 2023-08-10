@@ -1,6 +1,6 @@
 #include<stdio.h>
 /**
- * main - denotes entry point of code
+ * main - entry point
  *
  * return - zero show code was successful
  */
