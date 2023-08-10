@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point
- * prints the given characters and exits at a new line
- * return - 0 => success
+ *
+ * Return: Always 0 (Success)
  */
 
 int main(void)
