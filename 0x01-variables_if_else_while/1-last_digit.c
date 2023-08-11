@@ -5,7 +5,7 @@
  *
  * main - Entry point
  *
- * Return: zero (success)
+ * Return: 0 (success)
  *
  */
 int main(void)
@@ -20,8 +20,8 @@ int main(void)
 		printf("Last digit of %i is %i and is greater than 5\n", n, m);
 	else if (m == 0)
 		printf("Last digit of %i is %i and is 0\n", n, m);
-	else 
-		printf("Last digit of %i is %i less than 6 and not 0\n", n, m);
+	else
+		printf("Last digit of %i is %i and is less than 6 and not 0\n", n, m);
 
 	return (0);
 }
