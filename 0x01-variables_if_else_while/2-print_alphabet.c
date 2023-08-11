@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * msin - main code block
+ * main - main code block
  * using putchar to display alphatet
  * Return: 0 ==> success
 */
