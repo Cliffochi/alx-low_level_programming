@@ -10,7 +10,7 @@ int main(void)
 	char q;
 	int w;
 
-	for (w = 0;w < 10; w++)
+	for (w = 0; w < 10; w++)
 	{
 		putchar(w + '0');
 	}
