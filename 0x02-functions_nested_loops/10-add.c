@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * add - Add two integers
- * @x: int type number
- * @y: int type number
+ * @a: integer variable 1
+ * @b: integer variable 2
  * Return: result of addition
  */
 
