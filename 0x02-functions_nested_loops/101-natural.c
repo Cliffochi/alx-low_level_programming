@@ -13,7 +13,7 @@ int main(void)
 
 	for (m = 1; m < 1024; m++)
 	{
-		if ((m % 3) == || (m % 5) == 0)
+		if ((m % 3) == 0 || (m % 5) == 0)
 			n += m;
 	}
 	printf("%d\n", n);
