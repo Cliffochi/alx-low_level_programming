@@ -1,49 +1,76 @@
-#include "main.h"
 #include <stdlib.h>
 
 /**
- * string_nconcat - concatenates two strings.
- * @s1: first string.
- * @s2: second string.
- * @n: amount of bytes.
- *
- * Return: pointer to the allocated memory.
- * if malloc fails, status value is equal to 98.
+ * _strlen - Calculate the length of a string
+ * @str: The input string
+ * Return: The length of the string
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+int _strlen(char *str)
 {
-	char *sout;
-	unsigned int ls1, ls2, lsout, i;
+    int len = 0;
 
-	if (s1 == NULL)
-		s1 = "";
+    while (str[len] != '\0')
+    {
+        if (str[len] < '0' || str[len] > '9')
+        {
+            write(2, "Error\n", 6);
+            exit(98);
+        }
+        len++;
+    }
+    return (len);
+}
 
-	if (s2 == NULL)
-		s2 = "";
+/**
+ * main - Entry point
+ * @argc: The number of command-line arguments
+ * @argv: The command-line arguments
+ * Return: 0 on success, 98 on failure
+ */
+int main(int argc, char *argv[])
+{
+    int len1, len2, i, j, product, carry, num1, num2;
+    int *result;
 
-	for (ls1 = 0; s1[ls1] != '\0'; ls1++)
-		;
+    if (argc != 3)
+    {
+        write(2, "Error\n", 6);
+        exit(98);
+    }
 
-	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
-		;
+    len1 = _strlen(argv[1]);
+    len2 = _strlen(argv[2]);
+    result = malloc(len1 + len2);
 
-	if (n > ls2)
-		n = ls2;
+    if (result == NULL)
+    {
+        write(2, "Error\n", 6);
+        exit(98);
+    }
 
-	lsout = ls1 + n;
+    for (i = 0; i < len1 + len2; i++)
+        result[i] = 0;
 
-	sout = malloc(lsout + 1);
+    for (i = len1 - 1; i >= 0; i--)
+    {
+        carry = 0;
+        num1 = argv[1][i] - '0';
 
-	if (sout == NULL)
-		return (NULL);
+        for (j = len2 - 1; j >= 0; j--)
+        {
+            num2 = argv[2][j] - '0';
+            product = num1 * num2 + result[i + j + 1] + carry;
+            carry = product / 10;
+            result[i + j + 1] = product % 10;
+        }
 
-	for (i = 0; i < lsout; i++)
-		if (i < ls1)
-			sout[i] = s1[i];
-		else
-			sout[i] = s2[i - ls1];
+        result[i + j + 1] += carry;
+    }
 
-	sout[i] = '\0';
+    for (i = 0; i < len1 + len2; i++)
+        _putchar(result[i] + '0');
 
-	return (sout);
+    _putchar('\n');
+    free(result);
+    return (0);
 }
