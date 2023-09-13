@@ -1,20 +1,17 @@
 #include "function_pointers.h"
-#include <stdlib.h>
+#include "function_pointers.h"
 
 /**
- * array_iterator - Execute a function as a paramter on each element in array
- * @array: Given array to iterate through
- * @size: Size of array
- * @action: Function to call on array
+ * array_iterator - execute a function pointer on each element of an array
+ * @array: array of integers
+ * @size: size of array
+ * @action: function pointer
  */
+
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	unsigned int i;
+	size_t i;
 
-	i = 0;
-	while (i < size)
-	{
+	for (i = 0; i < size; i++)
 		action(array[i]);
-		i++;
-	}
 }
